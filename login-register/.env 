@@ -1,3 +1,0 @@
-SECRET_KEY=supersecretkey
-DATABASE_URL=postgresql://traveluser:password123@localhost:5432/travelapp
-
