@@ -1,0 +1,228 @@
+<!-- Login/Signup Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <h2>Welcome to Trip Collide</h2>
+        <p class="modal-subtitle">Sign in to create and share your travel itineraries</p>
+
+        <div class="tabs">
+            <div class="tabs-list">
+                <button class="tab-trigger active" data-tab="login">Login</button>
+                <button class="tab-trigger" data-tab="signup">Sign Up</button>
+            </div>
+
+            <div class="tab-content active" id="login">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="mail"></i>
+                            <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="lock"></i>
+                            <input type="password" id="loginPassword" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                </form>
+
+                <div class="divider"><span>Quick demo login</span></div>
+
+                <div class="demo-buttons">
+                    <button class="btn btn-outline btn-full" onclick="quickLogin('Sarah Chen', 'sarah@example.com')">
+                        <i data-lucide="user"></i> Login as Sarah Chen
+                    </button>
+                    <button class="btn btn-outline btn-full" onclick="quickLogin('Alex Rivera', 'alex@example.com')">
+                        <i data-lucide="user"></i> Login as Alex Rivera
+                    </button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="signup">
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="user"></i>
+                            <input type="text" id="signupName" placeholder="John Doe" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="mail"></i>
+                            <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="lock"></i>
+                            <input type="password" id="signupPassword" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create Itinerary Modal -->
+<div id="createModal" class="modal">
+    <div class="modal-content">
+        <h2>Create New Itinerary</h2>
+        <form id="createForm">
+            <div class="form-group">
+                <label>Trip Title</label>
+                <input type="text" id="tripTitle" placeholder="e.g., Summer in Barcelona" required>
+            </div>
+            <div class="form-group">
+                <label>Destination</label>
+                <input type="text" id="destination" placeholder="e.g., Barcelona, Spain" required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="description" placeholder="What's this trip about?" rows="3"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Start Date</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label>End Date</label>
+                    <input type="date" id="endDate" required>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-outline" onclick="closeCreateModal()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Create Itinerary</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Add Activity Modal -->
+<div id="activityModal" class="modal">
+    <div class="modal-content">
+        <h2>Add New Activity</h2>
+        <form id="activityForm">
+            <div class="form-group">
+                <label>Activity Title</label>
+                <input type="text" id="activityTitle" placeholder="e.g., Visit Museum of Modern Art" required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="activityDescription" placeholder="What will you do?" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Location</label>
+                <input type="text" id="activityLocation" placeholder="e.g., 11 W 53rd St, New York" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="activityDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    <input type="time" id="activityTime" value="09:00" required>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-outline" onclick="closeActivityModal()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Add Activity</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Edit Activity Modal -->
+<div id="editActivityModal" class="modal">
+    <div class="modal-content">
+        <h2>Edit Activity</h2>
+        <form id="editActivityForm">
+            <input type="hidden" id="editActivityId">
+            <div class="form-group">
+                <label>Activity Title</label>
+                <input type="text" id="editActivityTitle" required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="editActivityDescription" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Location</label>
+                <input type="text" id="editActivityLocation" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="editActivityDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    <input type="time" id="editActivityTime" required>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-outline" onclick="closeEditActivityModal()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="modal">
+    <div class="modal-content modal-small">
+        <h2>Delete Activity</h2>
+        <p id="deleteMessage"></p>
+        <div class="form-actions">
+            <button type="button" class="btn btn-outline" onclick="closeDeleteModal()">Cancel</button>
+            <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+        </div>
+    </div>
+</div>
+
+<!-- Share Modal -->
+<div id="shareModal" class="modal">
+    <div class="modal-content">
+        <h2>Share Itinerary</h2>
+        <div class="form-group">
+            <label>Share Link</label>
+            <div class="input-group">
+                <input type="text" id="shareLink" readonly>
+                <button class="btn btn-outline" onclick="copyShareLink()">
+                    <i data-lucide="copy"></i> Copy
+                </button>
+            </div>
+            <p class="help-text">Anyone with this link can view and edit this itinerary</p>
+        </div>
+
+        <div class="divider"><span>Or invite by email</span></div>
+
+        <div class="form-group">
+            <label>Email Address</label>
+            <div class="input-group">
+                <input type="email" id="inviteEmail" placeholder="colleague@example.com">
+                <button class="btn btn-primary" onclick="inviteCollaborator()">
+                    <i data-lucide="mail"></i> Invite
+                </button>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Collaborative editing:</strong> All collaborators can add, edit, and delete activities in real-time.
+        </div>
+
+        <button class="btn btn-outline btn-full" onclick="closeShareModal()">Close</button>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast"></div>
