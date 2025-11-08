@@ -1,0 +1,229 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --secondary: #64748b;
+    --success: #10b981;
+    --danger: #ef4444;
+    --danger-dark: #dc2626;
+    --bg-gradient-start: #eff6ff;
+    --bg-gradient-end: #faf5ff;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --radius: 0.5rem;
+}
+
+/* ... [keep everything from the CSS you pasted earlier] ... */
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .toast {
+        left: 1rem;
+        right: 1rem;
+    }
+
+    /* Itinerary card layout */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    .grid {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .grid-cols-1 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media (min-width: 768px) {
+        .grid-cols-md-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .grid-cols-lg-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    /* Card styling */
+    .itinerary-card {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .itinerary-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    /* Image styling */
+    .itinerary-image {
+        position: relative;
+        height: 10rem;
+        overflow: hidden;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .itinerary-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .itinerary-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1rem;
+    }
+
+    .itinerary-overlay h3 {
+        color: white;
+        margin: 0;
+    }
+
+    .itinerary-location {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.875rem;
+    }
+
+    /* Card content */
+    .itinerary-content {
+        padding: 1rem;
+    }
+
+    .itinerary-description {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .itinerary-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+    }
+
+    .itinerary-date {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+    }
+
+    .itinerary-footer {
+        border-top: 1px solid var(--border);
+        padding-top: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.875rem;
+    }
+
+    .view-link {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .view-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Header styling */
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    .header-content h1 {
+        font-size: 2rem;
+        color: var(--text-primary);
+    }
+
+    .header-content p {
+        color: var(--text-secondary);
+        font-size: 1rem;
+    }
+
+    .header-actions {
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: var(--radius);
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .btn-primary {
+        background: var(--primary);
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background: var(--primary-dark);
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-secondary {
+        color: var(--text-secondary);
+    }
+
+}

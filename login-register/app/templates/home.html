@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Collide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🌍 Trip Collide</h1>
+                <p>When worlds collide, experiences unite — plan, share, and explore together.</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="openModal('createModal')">+ Create Trip</button>
+                <button class="btn btn-outline" onclick="openModal('loginModal')">Login</button>
+            </div>
+        </header>
+
+        <!-- Itinerary Grid -->
+        <div class="grid grid-cols-1 grid-cols-md-2 grid-cols-lg-3">
+            <!-- Example Itinerary Card 1 -->
+            <div class="itinerary-card">
+                <div class="itinerary-image">
+                    <img src="https://images.unsplash.com/photo-1549693578-d683be217e58" alt="Tokyo">
+                    <div class="itinerary-overlay">
+                        <h3>Tokyo, Japan 🇯🇵</h3>
+                        <div class="itinerary-location">
+                            <i data-lucide="map-pin"></i> Asia
+                        </div>
+                    </div>
+                </div>
+                <div class="itinerary-content">
+                    <p class="itinerary-description">
+                        A cultural journey through Tokyo — sushi, temples, and tech.
+                    </p>
+                    <div class="itinerary-meta">
+                        <div class="itinerary-date">
+                            <i data-lucide="calendar"></i> Apr 5 – Apr 10
+                        </div>
+                    </div>
+                    <div class="itinerary-footer">
+                        <div class="itinerary-stats">
+                            <span>🌍 5 activities</span>
+                            <a href="#" class="view-link">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example Itinerary Card 2 -->
+            <div class="itinerary-card">
+                <div class="itinerary-image">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" alt="Paris">
+                    <div class="itinerary-overlay">
+                        <h3>Paris, France 🇫🇷</h3>
+                        <div class="itinerary-location">
+                            <i data-lucide="map-pin"></i> Europe
+                        </div>
+                    </div>
+                </div>
+                <div class="itinerary-content">
+                    <p class="itinerary-description">
+                        Art, architecture, and croissants in the City of Light.
+                    </p>
+                    <div class="itinerary-meta">
+                        <div class="itinerary-date">
+                            <i data-lucide="calendar"></i> May 1 – May 6
+                        </div>
+                    </div>
+                    <div class="itinerary-footer">
+                        <div class="itinerary-stats">
+                            <span>🌍 3 activities</span>
+                            <a href="#" class="view-link">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center text-secondary mt-4">
+            ✨ Built for "When Worlds Collide" Hackathon | Travel meets collaboration ✨
+        </p>
+    </div>
+
+    <!-- Include Modals -->
+    {% include 'modals.html' %}
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Close modals when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
