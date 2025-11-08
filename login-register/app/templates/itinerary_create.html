@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Itinerary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='itinerary.css') }}">
+
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .day { border: 1px solid #ccc; padding: 10px; margin-bottom: 15px; }
+        .day h3 { margin-top: 0; }
+        input { margin-bottom: 5px; }
+        button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Create Your Itinerary</h2>
+    <form method="POST">
+        <label>City</label><br>
+        <input type="text" name="title" required><br><br>
+
+        <div id="days-container"></div>
+
+        <button type="button" onclick="addDay()">Add Day</button><br><br>
+        <button type="submit">Submit Itinerary</button>
+    </form>
+
+    <script>
+        let dayCount = 0;
+        const times = {{ times|tojson }};
+
+        function addDay() {
+            dayCount++;
+            const container = document.getElementById("days-container");
+
+            const dayDiv = document.createElement("div");
+            dayDiv.className = "day";
+            dayDiv.id = "day-" + dayCount;
+
+            let innerHTML = `<h3>Day ${dayCount}</h3>`;
+            times.forEach(time => {
+                innerHTML += `
+                    <label>${time} - Activity:</label>
+                    <input type="text" name="day${dayCount}_${time}_activity" placeholder="Activity"><br>
+                    <label>${time} - Location:</label>
+                    <input type="text" name="day${dayCount}_${time}_location" placeholder="Location"><br>
+                `;
+            });
+
+            innerHTML += `<button type="button" onclick="removeDay(${dayCount})">Remove Day</button>`;
+            dayDiv.innerHTML = innerHTML;
+
+            container.appendChild(dayDiv);
+        }
+
+        function removeDay(id) {
+            const dayDiv = document.getElementById("day-" + id);
+            dayDiv.remove();
+        }
+    </script>
+</body>
+</html>
